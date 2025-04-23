@@ -2,7 +2,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export const venueSlice = createSlice({
-  name: "venue",
+  name: "venue", //This is an Array of venue objects. Each represents a rentable room in the venue with their properties
   initialState: [
     {
       img: "https://pixabay.com/images/download/chairs-2181916_640.jpg",
@@ -38,7 +38,7 @@ export const venueSlice = createSlice({
   ],
   reducers: {
    
-    incrementQuantity: (state, action) => {
+    incrementQuantity: (state, action) => { //This allows us to increase the quantity of rooms available
       const { payload: index } = action;
       if (state[index]) {
         if (state[index].name === " Auditorium Hall (Capacity:200)" && state[index].quantity >= 3) {
@@ -46,7 +46,7 @@ export const venueSlice = createSlice({
         state[index].quantity++;
       }
     },
-    decrementQuantity: (state, action) => {
+    decrementQuantity: (state, action) => { //This allows us to decrease the quantity of rooms available
       const { payload: index } = action;
       if (state[index] && state[index].quantity > 0) {
         state[index].quantity--;
